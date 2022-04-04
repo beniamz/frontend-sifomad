@@ -13,15 +13,11 @@ const Dashboard = () => {
             <Head>
                 <title>Laravel - Dashboard</title>
             </Head>
+            <h2 className="p-3 h-15 font-semibold text-xl text-slate-700">Dashboard</h2>
 
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 bg-white border-b border-gray-200">
-                            You're logged in!
-                        </div>
-                    </div>
-                </div>
+            <div className="p-2 font-inter grid grid-cols-1 gap-2 md:grid-cols-2 md:p-4  md:gap-4">                
+                <div className="h-15 bg-blue-500 aspect-[3/4] rounded-lg md:aspect-[4/3]"></div>
+                <div className="h-15 bg-blue-500 aspect-[3/4] rounded-lg md:aspect-[4/3]"></div>
             </div>
         </AppLayout>
     )

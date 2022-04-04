@@ -17,6 +17,13 @@ const AppLayout = ({ header, children }) => {
 
             {/* Page Content */}
             <main>{children}</main>
+            <hr className="mt-1 mb-1"></hr>   
+            <footer className="text-center">
+                <div className="p-3 bg-white relative font-semibold text-sm text-slate-500">
+                    <p>Copyright @ Sistem Informasi Madrasah (Sifomad)</p>
+                    <p>KKMI Sukmajaya. v.1.0.2022</p>
+                </div>
+            </footer>
         </div>
     )
 }
