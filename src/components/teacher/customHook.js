@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from '@/lib/axios'
+import swal from 'sweetalert';
 
 const useTeacher = formik => {
     //fetching data from the server
@@ -33,13 +34,15 @@ const useTeacher = formik => {
             const { data } = await axios.get(
                 `http://localhost:8000/api/teachers/${id}`,
             )
-
             //ringkas data untuk edit
             const teacher = data.data
             //masukan datanya ketika di edit
             formik.setFieldValue('nama_lengkap', teacher.nama_lengkap)
             formik.setFieldValue('nik', teacher.nik)
             formik.setFieldValue('jk', teacher.jk)
+            formik.setFieldValue('tempat_lahir', teacher.tempat_lahir)
+            formik.setFieldValue('tanggal_lahir', teacher.tanggal_lahir)
+            formik.setFieldValue('nuptk', teacher.nuptk)
             formik.setFieldValue('id', teacher.id)
         } catch (error) {
             console.log(error)
@@ -53,6 +56,7 @@ const useTeacher = formik => {
             'http://localhost:8000/api/teachers',
             values,
         )
+
         const teacher = data.data
         setTeachers(prev => [...prev, teacher])
     }
@@ -72,17 +76,28 @@ const useTeacher = formik => {
 
     // Fungsi Delete Data
     const handleDeleteTeacher = async id => {
-        const isOK = window.confirm('Are you sure want to Delete this data?')
-        if (isOK) {
-            try {
-                await axios.delete(`http://localhost:8000/api/teachers/${id}`)
-
-                const filteredteachers = teachers.filter(teacher => teacher.id !== id)
-                setTeachers(filteredteachers)
-            } catch (error) {
-                console.log(error)
+        
+        swal({
+            title: "Apakah anda yakin ingin menghapus data ini?",
+            text: "jika OK, maka data akan dihapus",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("Alhamdulillah...! Data sudah terhapus!", {
+                    icon: "success",
+                });
+                axios.delete(`http://localhost:8000/api/teachers/${id}`)
+                const updatedTeachers = teachers.filter(item => item.id !== id)
+                setTeachers(updatedTeachers)
+            } else {
+                swal("Anda membatalkan penghapusan data");
             }
-        }
+        });
+       
+        
     }
 
     return {

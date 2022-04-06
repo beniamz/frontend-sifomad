@@ -6,8 +6,23 @@ export const teacherSchema = Yup.object().shape({
         .max(50, 'Nama Too Long, please enter less than 50 characters')
         .required('Nama is required'),
     jk: Yup.string()
-        .min(4, 'jk Too Short, please enter more than 4 characters')
-        .max(12, 'jk Too Long, max 16 characters')
-        .required('jk is required'),
-    nik: Yup.number().required('nik is required'),
+        .min(4, 'JK Too Short, please enter more than 4 characters')
+        .max(12, 'JK Too Long, max 16 characters')
+        .required('JK is required'),
+    nuptk: Yup.string()
+        .min(1, 'NUPTK Too Short, please enter more than 4 characters')
+        .max(16, 'NUPTK Too Long, max 16 characters')
+        .required('NUPTK is required'),
+    tempat_lahir: Yup.string()
+        .min(3, 'Tempat Lahir Too Short, Minimum 3 characters')
+        .max(50, 'Tempat Lahir Too Long, please enter less than 50 characters')
+        .required('Tempat Lahir is required'),
+    tanggal_lahir: Yup.string()
+        .min(2, 'Tempat Lahir Too Short, Minimum 2 characters')
+        .max(50, 'Tempat Lahir Too Long, please enter less than 50 characters')
+        .required('Tempat Lahir is required'),
+    nik: Yup.string()
+        .min(16, 'NIK Too Short, please enter more than 4 characters')
+        .max(16, 'NIK Too Long, max 16 characters')
+        .required('NIK is required'),
 })

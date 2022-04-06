@@ -14,13 +14,14 @@ const TeacherList = ({ teachers = [], getTeacher, handleDeleteTeacher }) => {
     return teachers.map((teacher, index) => (
         <Item key={teacher.id}>
             <div className="flex justify-between items-center">
-                <div className="flex">
-                    <p className="mr-3">{index + 1} | </p>
-                    <p className="mr-3">{teacher.nama_lengkap} | </p>
-                    <p className="mr-3">{teacher.nik} | </p>
-                    <p className="mr-3">{teacher.jk}</p>
+                <div className="flex flex-wrap">
+                    <p className="mr-1">{index + 1} - </p>
+                    <p className="mr-1">{teacher.nama_lengkap} - </p>
+                    <p className="mr-1">{teacher.nik} - </p>
+                    <p className="mr-1">{teacher.nuptk} - </p>
+                    <p className="mr-1">{teacher.jk}</p>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex flex-wrap justify-between items-center">
                     <Button
                         className="flex-shrink-0 bg-indigo-600 hover:bg-indigo-300 border-indigo-500 hover:border-indigo-700 text-sm border-1 text-white py-1 px-2 justify-center rounded"
                         type="button"

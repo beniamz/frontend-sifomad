@@ -6,12 +6,16 @@ import TeacherList from '@/components/teacher/list'
 import useTeacher from '@/components/teacher/customHook'
 import { teacherSchema } from '@/components/teacher/schema'
 
+
 const TeacherPage = () => {
     const formik = useFormik({
         initialValues: {
             nama_lengkap: '',
             nik: 0,
+            nuptk: 0,
             jk: '',
+            tempat_lahir: '',
+            tanggal_lahir: '',
         },
         validationSchema: teacherSchema,
         onSubmit: async (values, { resetForm }) => {
@@ -52,7 +56,7 @@ const TeacherPage = () => {
                 <title>Sifomad - Teacher</title>
             </Head>
 
-            <div className="p-2 font-inter grid grid-cols-1 gap-2 md:grid-cols-2 md:p-4  md:gap-2">
+            <div className="p-3 font-inter grid grid-cols-1 gap-2 md:grid-cols-2 md:p-5 md:gap-5">
                 <div className="h-15 aspect-[3/4] rounded-lg md:aspect-[4/3]">                                 
                         <div className="bg-white overflow-hidden shadow-sm rounded-lg md:rounded-lg">
                             <div className="card-header">
@@ -69,16 +73,10 @@ const TeacherPage = () => {
                 </div>
                 <div className="h-15 aspect-[3/4] rounded-lg lg:rounded-lg md:aspect-[4/3]">
                     <div className="p-6 ml-1 mr-1 px-3 bg-white border-b border-gray-200 rounded-lg lg:rounded-lg shadow-slate-700">
-                        <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                        <h2 className="font-semibold text-xl text-gray-800 leading-tight mb-3">
                         List of Teachers
-                        </h2>
-                        {/* <div className="flex px-3 justify-between">
-                        <p>#</p>
-                        <p>Nama Lengkap</p>
-                        <p>NIK</p>
-                        <p>JK</p>
-                        <p>Action</p>
-                        </div> */}
+                        </h2>  
+                      
                         <TeacherList
                         teachers={teachers}
                         getTeacher={getTeacher}
