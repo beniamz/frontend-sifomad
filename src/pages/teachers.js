@@ -5,6 +5,8 @@ import TeacherForm from '@/components/teacher/form'
 import TeacherList from '@/components/teacher/list'
 import useTeacher from '@/components/teacher/customHook'
 import { teacherSchema } from '@/components/teacher/schema'
+import Datatable from '@/components/teacher/datatable'
+
 
 
 const TeacherPage = () => {
@@ -56,38 +58,39 @@ const TeacherPage = () => {
                 <title>Sifomad - Teacher</title>
             </Head>
 
-            <div className="p-3 font-inter grid grid-cols-1 gap-2 md:grid-cols-2 md:p-5 md:gap-5">
-                <div className="h-15 aspect-[3/4] rounded-lg md:aspect-[4/3]">                                 
-                        <div className="bg-white overflow-hidden shadow-sm rounded-lg md:rounded-lg">
+            <div className="p-3">
+                <div className="max-w-12xl mx-auto sm:px-6 md:px-6 lg:px-8 ">                                 
+                        <div className="bg-white overflow-y-auto shadow-sm rounded-lg md:rounded-lg mb-3 ">
                             <div className="card-header">
                                 <h2 className="font-semibold py-6 px-5 text-xl text-gray-800 leading-tight">
                                     Form Add Teachers
                                 </h2>
-                            </div>
+                            </div >
+                            <div className="p-3 overflow-x-auto overflow-y-auto mt-3 mb-1 h-15">
                                 <TeacherForm
                                     handleAddTeacher={handleAddTeacher}
                                     formik={formik}
                                 />
-                        </div>            
+                            </div>
+                        </div>  
+                        <div className="p-6 ml-1 mr-1 px-3 bg-white overflow-y-auto shadow-sm rounded-lg md:rounded-lg mb-3">
+                            <h2 className="font-semibold text-xl text-gray-800 leading-tight mb-3">
+                            List of Teachers
+                            </h2>  
+                        <div className="p-3 overflow-x-auto overflow-y-auto mt-3 mb-6 h-15" >
+                            {/* <Datatable
+                            teachers={teachers}                            
+                            /> */}
+
+                            <TeacherList
+                            teachers={teachers}
+                            getTeacher={getTeacher}
+                            handleDeleteTeacher={handleDeleteTeacher}
+                            />
+                        </div>
+                    </div>          
                     
                 </div>
-                <div className="h-15 aspect-[3/4] rounded-lg lg:rounded-lg md:aspect-[4/3]">
-                    <div className="p-6 ml-1 mr-1 px-3 bg-white border-b border-gray-200 rounded-lg lg:rounded-lg shadow-slate-700">
-                        <h2 className="font-semibold text-xl text-gray-800 leading-tight mb-3">
-                        List of Teachers
-                        </h2>  
-                      
-                        <TeacherList
-                        teachers={teachers}
-                        getTeacher={getTeacher}
-                        handleDeleteTeacher={handleDeleteTeacher}
-                        />
-                    </div>
-                </div>
-            </div>
-
-
-            <div className="">  
                 
             </div>
         </AppLayout>

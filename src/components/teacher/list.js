@@ -2,16 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Button from '@/components/form/button'
 
-const TeacherList = ({ teachers = [], getTeacher, handleDeleteTeacher }) => {
+
+
+const TeacherList = ({ teachers = [], getTeacher, handleDeleteTeacher, loading }) => {
     const Item = ({ children }) => {
         return (
             <div className="w-full border-2 border-gray-700 px-3 py-3 mb-2 rounded-lg">
                 {children}
             </div>
         )
+        
     }
 
-    return teachers.map((teacher, index) => (
+    return teachers.map((teacher, index) => (        
+        <div className="flex overflow-x-auto">
+            {loading ? (
+                `Mohon bersabar sedang mengambil data dari server..!`
+            ) : (
         <Item key={teacher.id}>
             <div className="flex justify-between items-center">
                 <div className="flex flex-wrap">
@@ -19,9 +26,11 @@ const TeacherList = ({ teachers = [], getTeacher, handleDeleteTeacher }) => {
                     <p className="mr-1">{teacher.nama_lengkap} - </p>
                     <p className="mr-1">{teacher.nik} - </p>
                     <p className="mr-1">{teacher.nuptk} - </p>
+                    <p className="mr-1">{teacher.tempat_lahir} - </p>
+                    <p className="mr-1">{teacher.tanggal_lahir} - </p>
                     <p className="mr-1">{teacher.jk}</p>
                 </div>
-                <div className="flex flex-wrap justify-between items-center">
+                <div className="flex justify-between items-center">
                     <Button
                         className="flex-shrink-0 bg-indigo-600 hover:bg-indigo-300 border-indigo-500 hover:border-indigo-700 text-sm border-1 text-white py-1 px-2 justify-center rounded"
                         type="button"
@@ -38,6 +47,8 @@ const TeacherList = ({ teachers = [], getTeacher, handleDeleteTeacher }) => {
                 </div>
             </div>
         </Item>
+                            )}
+        </div>
     ))
 }
 
