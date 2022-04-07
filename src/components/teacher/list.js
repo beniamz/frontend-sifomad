@@ -1,24 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import Button from '@/components/form/button'
+import PropTypes from 'prop-types'
+import React from 'react'
 
-
-
-const TeacherList = ({ teachers = [], getTeacher, handleDeleteTeacher, loading }) => {
+const TeacherList = ({
+    teachers = [],
+    getTeacher,
+    handleDeleteTeacher,
+    loading,
+}) => {
     const Item = ({ children }) => {
         return (
             <div className="w-full border-2 border-gray-700 px-3 py-3 mb-2 rounded-lg">
                 {children}
             </div>
         )
-        
     }
 
-    return teachers.map((teacher, index) => (        
-        <div className="flex overflow-x-auto">
-            {loading ? (
-                `Mohon bersabar sedang mengambil data dari server..!`
-            ) : (
+    return teachers.map((teacher, index) => (
         <Item key={teacher.id}>
             <div className="flex justify-between items-center">
                 <div className="flex flex-wrap">
@@ -47,8 +45,6 @@ const TeacherList = ({ teachers = [], getTeacher, handleDeleteTeacher, loading }
                 </div>
             </div>
         </Item>
-                            )}
-        </div>
     ))
 }
 
