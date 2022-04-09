@@ -55,14 +55,11 @@ const TeacherPage = () => {
                 <title>Sifomad - Teacher</title>
             </Head>
 
-            <button className="btn btn danger">
-                <em className="fas fa trash">tes</em>
-            </button>
             <div className="p-3">
                 <div className="max-w-12xl mx-auto sm:px-6 md:px-6 lg:px-8 ">
                     <div className="bg-white overflow-y-auto shadow-sm rounded-lg md:rounded-lg mb-3 ">
                         <div className="card-header">
-                            <h2 className="font-semibold py-6 px-5 text-xl text-gray-800 leading-tight">
+                            <h2 className="font-semibold py-2 px-2 text-xl text-gray-800 leading-tight">
                                 Form Add Teachers
                             </h2>
                         </div>
@@ -78,10 +75,7 @@ const TeacherPage = () => {
                             List of Teachers
                         </h2>
                         <div className="p-3 overflow-x-auto overflow-y-auto mt-3 mb-6 h-15">
-                            {/* <Datatable
-                            teachers={teachers}                            
-                            /> */}
-
+                            <br></br>
                             <TeacherList
                                 teachers={teachers}
                                 getTeacher={getTeacher}

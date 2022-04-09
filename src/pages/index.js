@@ -1,6 +1,4 @@
 import { useAuth } from '@/hooks/auth'
-import '@fortawesome/fontawesome-free/css/all.min.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import Head from 'next/head'
 import Link from 'next/link'
 

@@ -6,7 +6,7 @@ const Form = ({ formik }) => {
     return (
         <>
             <div className="px-3 mb-5">
-                <div className="rounded-lg overflow-hidden shadow-lg">
+                <div className="bg-gray-200 rounded-lg overflow-hidden shadow-md">
                     <div className="px-6 ">
                         <form className="w-full" onSubmit={formik.handleSubmit}>
                             <div className=" flex flex-wrap ">
@@ -122,7 +122,7 @@ const Form = ({ formik }) => {
                             <hr className="mt-3 mb-3"></hr>
                             <div className="w-full px-7 mb-3">
                                 <Button
-                                    className="flex-shrink-0 bg-indigo-600 hover:bg-teal-500 border-indigo-500 hover:border-teal-600 border-b-4 border-1 text-white mx-auto py-2 px-2 justify-center rounded"
+                                    className="flex-shrink-0 bg-indigo-600 hover:bg-teal-500 border-gray-100 hover:border-teal-100 border-b-1 border-1 text-white mx-auto py-2 px-2 justify-center rounded"
                                     type="submit"
                                     disabled={
                                         !(formik.isValid && formik.dirty)

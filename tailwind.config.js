@@ -15,5 +15,5 @@ module.exports = {
             opacity: ['disabled'],
         },
     },
-    plugins: [require('@tailwindcss/forms'), require('daisyui'), require('flowbite/plugin')],
+    plugins: [require('@tailwindcss/forms'), require('flowbite/plugin')],
 }
