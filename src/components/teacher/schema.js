@@ -25,4 +25,12 @@ export const teacherSchema = Yup.object().shape({
         .min(16, 'NIK Too Short, please enter more than 4 characters')
         .max(16, 'NIK Too Long, max 16 characters')
         .required('NIK is required'),
+    tugas_utama: Yup.string()
+        .min(4, 'Tugas Utama Too Short, Minimum 4 characters')
+        .max(50, 'Tugas Utama Too Long, please enter less than 25 characters')
+        .required('Tugas Utama is required'),
+    status: Yup.string()
+        .min(3, 'Status Too Short, Minimum 3 characters')
+        .max(25, 'Status Too Long, please enter less than 25 characters')
+        .required('Status is required'),
 })

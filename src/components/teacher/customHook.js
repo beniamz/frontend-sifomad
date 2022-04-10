@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
 import axios from '@/lib/axios'
-import swal from 'sweetalert';
+import { useEffect, useState } from 'react'
+import swal from 'sweetalert'
 
 const useTeacher = formik => {
     //fetching data from the server
@@ -43,6 +43,8 @@ const useTeacher = formik => {
             formik.setFieldValue('tempat_lahir', teacher.tempat_lahir)
             formik.setFieldValue('tanggal_lahir', teacher.tanggal_lahir)
             formik.setFieldValue('nuptk', teacher.nuptk)
+            formik.setFieldValue('tugas_utama', teacher.tugas_utama)
+            formik.setFieldValue('status', teacher.status)
             formik.setFieldValue('id', teacher.id)
         } catch (error) {
             console.log(error)
@@ -76,28 +78,24 @@ const useTeacher = formik => {
 
     // Fungsi Delete Data
     const handleDeleteTeacher = async id => {
-        
         swal({
-            title: "Apakah anda yakin ingin menghapus data ini?",
-            text: "jika OK, maka data akan dihapus",
-            icon: "warning",
+            title: 'Apakah anda yakin ingin menghapus data ini?',
+            text: 'jika OK, maka data akan dihapus',
+            icon: 'warning',
             buttons: true,
             dangerMode: true,
-        })
-        .then((willDelete) => {
+        }).then(willDelete => {
             if (willDelete) {
-                swal("Alhamdulillah...! Data sudah terhapus!", {
-                    icon: "success",
-                });
+                swal('Alhamdulillah...! Data sudah terhapus!', {
+                    icon: 'success',
+                })
                 axios.delete(`http://localhost:8000/api/teachers/${id}`)
                 const updatedTeachers = teachers.filter(item => item.id !== id)
                 setTeachers(updatedTeachers)
             } else {
-                swal("Anda membatalkan penghapusan data");
+                swal('Anda membatalkan penghapusan data')
             }
-        });
-       
-        
+        })
     }
 
     return {

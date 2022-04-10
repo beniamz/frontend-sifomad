@@ -1,7 +1,7 @@
 import AppLayout from '@/components/Layouts/AppLayout'
 import useTeacher from '@/components/teacher/customHook'
+import DataList from '@/components/teacher/dataList'
 import TeacherForm from '@/components/teacher/form'
-import TeacherList from '@/components/teacher/list'
 import { teacherSchema } from '@/components/teacher/schema'
 import { useFormik } from 'formik'
 import Head from 'next/head'
@@ -15,6 +15,8 @@ const TeacherPage = () => {
             jk: '',
             tempat_lahir: '',
             tanggal_lahir: '',
+            tugas_utama: '',
+            status: '',
         },
         validationSchema: teacherSchema,
         onSubmit: async (values, { resetForm }) => {
@@ -71,16 +73,23 @@ const TeacherPage = () => {
                         </div>
                     </div>
                     <div className="p-6 ml-1 mr-1 px-3 bg-white overflow-y-auto shadow-sm rounded-lg md:rounded-lg mb-3">
-                        <h2 className="font-semibold text-xl text-gray-800 leading-tight mb-3">
+                        <h2 className="font-semibold text-xl text-gray-800 leading-tight">
                             List of Teachers
                         </h2>
-                        <div className="p-3 overflow-x-auto overflow-y-auto mt-3 mb-6 h-15">
+                        <div className="p-3 mt-3 mb-6 h-15">
+                            <div>
+                                <DataList
+                                    teachers={teachers}
+                                    getTeacher={getTeacher}
+                                    handleDeleteTeacher={handleDeleteTeacher}
+                                />
+                            </div>
                             <br></br>
-                            <TeacherList
+                            {/* <TeacherList
                                 teachers={teachers}
                                 getTeacher={getTeacher}
                                 handleDeleteTeacher={handleDeleteTeacher}
-                            />
+                            /> */}
                         </div>
                     </div>
                 </div>

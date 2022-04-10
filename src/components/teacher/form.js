@@ -115,7 +115,44 @@ const Form = ({ formik }) => {
                                     </FormControl>
                                 </div>
                             </div>
-                            <div className="flex flex-wrap py-3"></div>
+                            <div className="flex flex-wrap">
+                                <div className="w-full flex-wrap md:w-1/6">
+                                    <FormControl
+                                        label="Tugas Utama"
+                                        id="tugas_utama">
+                                        <Input
+                                            placeholder="Isi dgn Guru Kelas/Guru Mapel"
+                                            id="tugas_utama"
+                                            name="tugas_utama"
+                                            onChange={formik.handleChange}
+                                            value={formik.values.tugas_utama}
+                                        />
+                                        {formik.errors.tugas_utama && (
+                                            <label className="text-red-600 p-3">
+                                                {formik.errors['tugas_utama']}
+                                            </label>
+                                        )}
+                                    </FormControl>
+                                </div>
+                                <div className="w-full flex-wrap md:w-1/6">
+                                    <FormControl
+                                        label="Status Pegawai"
+                                        id="status">
+                                        <Input
+                                            placeholder="Isi dgn PNS atau NON PNS"
+                                            id="status"
+                                            name="status"
+                                            onChange={formik.handleChange}
+                                            value={formik.values.status}
+                                        />
+                                        {formik.errors.status && (
+                                            <label className="text-red-600 p-3">
+                                                {formik.errors['status']}
+                                            </label>
+                                        )}
+                                    </FormControl>
+                                </div>
+                            </div>
                             <div className="flex flex-wrap py-3">
                                 <div className="w-full md:w-1/3 "></div>
                             </div>
